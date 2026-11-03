@@ -467,6 +467,83 @@ const SCENES=[
  {zh:"别跟你妈说",en:"Don't tell your mom"}]}
 ];
 
+
+/* ============ 彩蛋联系人：每轮随机混进 0~2 个 ============
+   av = 头像文件名，放在仓库的 avatars 文件夹里；找不到图片时会自动用普通卡通头像代替 */
+const EGG_WEIGHTS=[0.25,0.55,0.20];   // 每轮出现 0 / 1 / 2 个彩蛋的概率
+const EGGS=[
+{id:"e01",egg:1,av:"klein",name:{zh:"克莱恩",en:"Klein"},msgs:[{t:"23:40"},
+ {zh:"下周一下午三点",en:"Next Monday, 3pm"},
+ {zh:"记得准时",en:"Be on time"},
+ {me:1,zh:"？？什么三点",en:"?? what 3pm"},
+ {zh:"啊",en:"Ah"},
+ {zh:"发错人了",en:"Wrong person"},
+ {zh:"你什么都没看到，也别去想灰雾的事",en:"You saw nothing. And don't go thinking about any gray fog."}]},
+{id:"e02",egg:1,av:"amon",name:{zh:"阿蒙",en:"Amon"},msgs:[{t:"03:33"},
+ {zh:"你好呀",en:"Hello there"},
+ {zh:"你的手机，我刚刚借来玩了一下",en:"I borrowed your phone for a little while just now"},
+ {zh:"别担心，什么都没偷走",en:"Don't worry, I didn't steal anything"},
+ {zh:"只是拿走了你刚才犹豫要不要回我的那几秒",en:"Only the few seconds you spent deciding whether to reply to me"},
+ {zh:"很有趣，不是吗？",en:"Isn't that fun?"}]},
+{id:"e03",egg:1,av:"alger",name:{zh:"阿尔杰",en:"Alger"},msgs:[{t:"19:02"},
+ {zh:"能占用你一点时间吗",en:"May I have a moment of your time"},
+ {zh:"我最近在海上遇到些事，暂时不方便细说",en:"Something happened out at sea. I can't go into details yet"},
+ {me:1,zh:"你说",en:"go on"},
+ {zh:"如果有人愿意用一份魔药配方",en:"If someone offered you a potion formula"},
+ {zh:"换你一个无关紧要的小秘密",en:"in exchange for one small, unimportant secret"},
+ {zh:"你会换吗",en:"would you trade?"}]},
+{id:"e04",egg:1,av:"leonard",name:{zh:"伦纳德",en:"Leonard"},msgs:[{t:"01:10"},
+ {zh:"守夜回来了",en:"Back from the night watch"},
+ {zh:"今晚廷根的月亮很红",en:"The moon over Tingen is very red tonight"},
+ {zh:"想到一句诗，想念给你听",en:"A line of poetry came to me, I wanted to read it to you"},
+ {zh:"……算了",en:"...never mind"},
+ {zh:"脑子里那个老头已经开始笑我了",en:"The old man in my head is already laughing at me"}]},
+{id:"e05",egg:1,av:"emet-selch",name:{zh:"爱梅特赛尔克",en:"Emet-Selch"},msgs:[{t:"23:58"},
+ {zh:"又是你",en:"You again"},
+ {zh:"拯救世界拯救到这么晚，还不睡？",en:"Saving the world this late, and still not asleep?"},
+ {zh:"别误会，我才没有关心你",en:"Don't misunderstand. I am not concerned about you."},
+ {zh:"只是看一个残缺的灵魂这样硬撑，实在看不下去",en:"Watching an incomplete soul push itself like this is simply unbearable to watch."},
+ {zh:"去睡觉，英雄",en:"Go to sleep, hero."}]},
+{id:"e06",egg:1,av:"hythlodaeus",name:{zh:"希斯拉德",en:"Hythlodaeus"},msgs:[{t:"16:20"},
+ {zh:"你的灵魂颜色还是这么好看呢",en:"The color of your soul is as lovely as ever"},
+ {zh:"偷偷告诉你",en:"A little secret"},
+ {zh:"某个人嘴上说着“无聊”，却已经把你们的合照看了好几遍",en:"Someone keeps calling it \"boring,\" yet he's looked at that photo of you two several times"},
+ {zh:"他不会承认的，所以我替他说了",en:"He'll never admit it, so I'm saying it for him"},
+ {zh:"别告诉他是我说的哦",en:"Don't tell him it was me"}]},
+{id:"e07",egg:1,av:"venat",name:{zh:"维涅斯",en:"Venat"},msgs:[{t:"07:40"},
+ {zh:"早上好，远方来的旅人",en:"Good morning, traveler from afar"},
+ {zh:"我一直想问你",en:"I've long wanted to ask you"},
+ {zh:"在你的时代，人们还会抬头看星星吗",en:"in your time, do people still look up at the stars?"},
+ {zh:"如果哪天你觉得累了",en:"If you ever feel weary"},
+ {zh:"请记得，你走过的每一步都有意义",en:"please remember that every step you've walked has meaning"}]},
+{id:"e08",egg:1,av:"graha-tia",name:{zh:"古拉哈·提亚",en:"G'raha Tia"},msgs:[{t:"20:05"},
+ {zh:"那个……打扰了！",en:"Um... sorry to bother you!"},
+ {zh:"我把你这些年的冒险整理成了记录",en:"I've been compiling a record of your adventures over the years"},
+ {zh:"才写到第三卷，就已经比预想的厚很多了",en:"I'm only on volume three and it's already far thicker than I expected"},
+ {zh:"你、你愿意的话，能给我讲讲最近那一段吗",en:"If, if you're willing, could you tell me about the latest part?"},
+ {zh:"我保证只问一点点！",en:"I promise I'll only ask a little!"}]},
+{id:"e09",egg:1,av:"themis",name:{zh:"忒弥斯",en:"Themis"},msgs:[{t:"21:30"},
+ {zh:"打扰了",en:"Pardon the intrusion"},
+ {zh:"我在整理今天的观测记录",en:"I was going through today's observation records"},
+ {zh:"里面有一个来自很远很远地方的灵魂",en:"and found a soul from somewhere very, very far away"},
+ {zh:"我想，那应该是你吧",en:"I believe that must be you"},
+ {zh:"下次来厄尔庇斯，我带你去看新诞生的生物",en:"Next time you come to Elpis, let me show you the newest creations"}]},
+{id:"e10",egg:1,group:1,av:"scions",name:{zh:"拂晓血盟(7)",en:"Scions of the Seventh Dawn (7)"},msgs:[{t:"18:00"},
+ {who:{zh:"阿尔菲诺",en:"Alphinaud",av:"alphinaud"},zh:"各位，今晚的会议资料我整理好了，一共四十七页",en:"Everyone, the notes for tonight's meeting are ready. Forty-seven pages."},
+ {who:{zh:"阿莉塞",en:"Alisaie",av:"alisaie"},zh:"哥，你认真的？",en:"Brother. Are you serious?"},
+ {who:{zh:"桑克瑞德",en:"Thancred",av:"thancred"},zh:"我突然想起今晚有任务",en:"I just remembered I have a job tonight"},
+ {who:{zh:"雅·修特拉",en:"Y'shtola",av:"yshtola"},zh:"我看得见你在想什么，桑克瑞德",en:"I can see exactly what you're thinking, Thancred"},
+ {who:{zh:"于里昂热",en:"Urianger",av:"urianger"},zh:"吾以为，此事不妨徐徐图之……",en:"I would counsel that we proceed with measured patience..."},
+ {who:{zh:"阿莉塞",en:"Alisaie",av:"alisaie"},zh:"于里昂热，说人话！",en:"Urianger. Plain words!"},
+ {who:{zh:"阿尔菲诺",en:"Alphinaud",av:"alphinaud"},zh:"总之我们都在等你，你会来的吧？",en:"In any case, we're all waiting on you. You will come, won't you?"}]},
+{id:"e11",egg:1,av:"estinien",name:{zh:"埃斯蒂尼安",en:"Estinien"},msgs:[{t:"14:12"},
+ {zh:"我在萨雷安",en:"I'm in Sharlayan"},
+ {zh:"这边的东西太甜了",en:"The food here is far too sweet"},
+ {zh:"还是你上次带的那个好吃",en:"What you brought last time was better"},
+ {zh:"下次多带点",en:"Bring more next time"},
+ {zh:"……顺便问一句，你最近没受伤吧",en:"...and, while I'm asking. You haven't been hurt lately, have you."}]}
+];
+
 const I18N={
  zh:{search:"搜索",chats:"消息",tabChats:"消息",tabContacts:"联系人",tabMoments:"动态",tabMe:"我",stkPv:"[动画表情]",typing:"对方正在输入...",send:"发送",now:"现在",me:"我",doneTitle:"聊完啦，谢谢你",
   saving:"正在提交…",saved:"已提交，谢谢参与。",saveFail:c=>`提交失败（${c}），请检查网络后点“再来一轮”重做。`,again:"再来一轮",langBtn:"EN"},
@@ -491,7 +568,16 @@ let avMap={};
 function assignAvatars(){const keys=new Set(["__me__"]);for(const s of round){keys.add(s.name.zh);for(const m of s.msgs)if(m.who)keys.add(m.who.zh)}
   const pics=shuffle(AVATARS.map((_,i)=>i));avMap={};[...keys].forEach((k,i)=>avMap[k]=pics[i%pics.length])}
 const avSrc=k=>AVATARS[avMap[k]??0];
-const avHTML=nameObj=>`<div class="av"><img src="${avSrc(nameObj.zh)}" alt=""></div>`;
+/* 有 av 文件名的联系人用 avatars/ 里的照片；加载失败就退回卡通头像 */
+const EGG_EXT=[".jpg",".png",".webp",".jpeg"];
+function avImg(nameObj,av){
+  if(!av)return `<img src="${avSrc(nameObj.zh)}" alt="">`;
+  return `<img src="avatars/${av}${EGG_EXT[0]}" data-k="${esc(nameObj.zh)}" data-av="${av}" data-x="0" alt="" onerror="avFail(this)">`;
+}
+function avFail(img){const x=+img.dataset.x+1;
+  if(x<EGG_EXT.length){img.dataset.x=x;img.src="avatars/"+img.dataset.av+EGG_EXT[x]}
+  else{img.onerror=null;img.src=avSrc(img.dataset.k)}}
+const avHTML=(nameObj,av)=>`<div class="av">${avImg(nameObj,av)}</div>`;
 const meAv=()=>`<div class="av"><img src="${avSrc("__me__")}" alt=""></div>`;
 /* 实时部分 = 最后一段连续的对方消息 */
 function liveStart(s){let i=s.msgs.length;while(i>0&&!s.msgs[i-1].me&&!s.msgs[i-1].t)i--;return i}
@@ -510,7 +596,7 @@ function msgHTML(m,s){
   if(m.link)inner=`<div class="bub card"><b>${esc(tx(m))}</b><span>${esc(tx(m.src))}</span></div>`;
   else if(m.loc)inner=`<div class="bub card"><b>${esc(tx(m))}</b><div class="map"></div></div>`;
   else inner=`<div class="bub">${esc(tx(m))}</div>`;
-  return `<div class="row">${avHTML(who)}<div class="body">${s.group?`<div class="who">${esc(tx(who))}</div>`:""}${inner}</div></div>`;
+  return `<div class="row">${avHTML(who,m.who?m.who.av:s.av)}<div class="body">${s.group?`<div class="who">${esc(tx(who))}</div>`:""}${inner}</div></div>`;
 }
 const unreadOf=s=>st[s.id].opened?0:s.msgs.length-liveStart(s);
 const totalUnread=(except)=>round.reduce((n,s)=>n+(s===except?0:unreadOf(s)),0);
@@ -525,7 +611,7 @@ function preview(s){
 function renderHome(){
   $("h-title").textContent=t("chats")+(totalUnread()?` (${totalUnread()})`:"");
   $("list").innerHTML=order.map(i=>{const s=round[i],u=unreadOf(s),a=st[s.id].answered;
-    return `<button class="item${i===cur?" sel":""}" type="button" data-i="${i}"><span class="pic"><div class="av"><img src="${avSrc(s.name.zh)}" alt=""></div>${u?`<span class="badge">${u}</span>`:""}</span>
+    return `<button class="item${i===cur?" sel":""}" type="button" data-i="${i}"><span class="pic"><div class="av">${avImg(s.name,s.av)}</div>${u?`<span class="badge">${u}</span>`:""}</span>
     <span class="txt"><span class="l1"><b>${esc(tx(s.name))}</b><time>${esc(a?t("now"):lastTime(s))}</time></span><span class="pv">${esc(preview(s))}</span></span></button>`}).join("");
   const tu=totalUnread();$("tab-badge").hidden=!tu;$("tab-badge").textContent=tu;
 }
@@ -614,7 +700,7 @@ $("back").onclick=goHome;
 function reply(r){
   if(!canReply())return;
   const s=round[cur],S=st[s.id];S.answered=r;
-  answers.push({scenario_id:s.id,contact:s.name.zh,reply_type:r.type,sticker_id:r.id||"",original_file:r.id?ORIG[r.id]:"",
+  answers.push({scenario_id:s.id,contact:s.name.zh,easter_egg:s.egg?1:0,reply_type:r.type,sticker_id:r.id||"",original_file:r.id?ORIG[r.id]:"",
     text:r.text||"",list_position:S.listPos,sticker_position:r.pos||"",deepest_seen:S.deepest||0,panel_size:S.order?S.order.filter(id=>!bad.has(id)).length:0,ms:Date.now()-S.openedAt});
   order=[cur,...order.filter(x=>x!==cur)];
   $("panel").hidden=true;$("emo").setAttribute("aria-pressed","false");
@@ -623,7 +709,10 @@ function reply(r){
   if(answers.length===round.length)setTimeout(finish,1800);
 }
 function start(){
-  {const seen=new Set();round=shuffle(SCENES).filter(x=>!seen.has(x.name.zh)&&seen.add(x.name.zh)).slice(0,PER_ROUND)}   // 同一个人一轮只出现一次
+  {let r=Math.random(),k=0;for(;k<EGG_WEIGHTS.length-1;k++){if(r<EGG_WEIGHTS[k])break;r-=EGG_WEIGHTS[k]}
+   const eggPick=shuffle(EGGS).slice(0,k);
+   const seen=new Set();const normal=shuffle(SCENES).filter(x=>!seen.has(x.name.zh)&&seen.add(x.name.zh)).slice(0,PER_ROUND-eggPick.length);   // 同一个人一轮只出现一次
+   round=shuffle([...normal,...eggPick])}
   order=round.map((_,i)=>i);st={};round.forEach(s=>st[s.id]={opened:false,openedAt:0,answered:null,order:null,deepest:0,listPos:0});
   answers=[];startedAt=Date.now();sessionId=startedAt.toString(36)+Math.random().toString(36).slice(2,6);
   saveState=null;assignAvatars();$("rail-me").innerHTML=`<img src="${avSrc("__me__")}" alt="">`;
